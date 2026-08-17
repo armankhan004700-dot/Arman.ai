@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arman AI - Intelligent Assistant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon">A</div>
+                <div class="logo-text">
+                    <h1>Arman.ai</h1>
+                    <p>AI ASSISTANT</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-section="chat">
+                    <i class="fas fa-comment"></i>
+                    <span>Chat</span>
+                </a>
+                <a href="#" class="nav-item" data-section="voice">
+                    <i class="fas fa-microphone"></i>
+                    <span>Voice Command</span>
+                </a>
+                <a href="#" class="nav-item" data-section="tasks">
+                    <i class="fas fa-check-square"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="#" class="nav-item" data-section="calendar">
+                    <i class="fas fa-calendar"></i>
+                    <span>Calendar</span>
+                </a>
+                <a href="#" class="nav-item" data-section="notes">
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Notes</span>
+                </a>
+                <a href="#" class="nav-item" data-section="files">
+                    <i class="fas fa-folder"></i>
+                    <span>Files</span>
+                </a>
+                <a href="#" class="nav-item" data-section="search">
+                    <i class="fas fa-search"></i>
+                    <span>Web Search</span>
+                </a>
+                <a href="#" class="nav-item" data-section="automation">
+                    <i class="fas fa-cog"></i>
+                    <span>Automation</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AK</div>
+                    <div class="user-info">
+                        <h3>Arman Khan</h3>
+                        <p>Premium User</p>
+                    </div>
+                </div>
+                <a href="#" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-greeting">
+                    <h2>Good Evening, Arman <span class="wave">👋</span></h2>
+                    <p>How can I help you today?</p>
+                </div>
+                <div class="header-controls">
+                    <button class="control-btn mic-btn" id="voiceBtn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="control-btn">
+                        <i class="fas fa-calendar"></i>
+                    </button>
+                    <button class="control-btn">
+                        <i class="fas fa-home"></i>
+                    </button>
+                    <button class="control-btn notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <div class="time-display">
+                        <div class="time" id="currentTime">08:45 PM</div>
+                        <div class="date" id="currentDate">Tuesday, 13 Aug 2025</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div id="dashboard" class="section active">
+                <!-- Voice Interface -->
+                <div class="voice-interface">
+                    <div class="voice-status">
+                        <span class="status-dot"></span>
+                        <span>Online</span>
+                    </div>
+
+                    <div class="voice-mode-selector">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Voice Mode</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <!-- Animated Voice Waveform -->
+                <div class="voice-waveform">
+                    <div class="waveform-container">
+                        <svg class="waveform-svg" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="95" fill="none" stroke="url(#gradient1)" stroke-width="2" opacity="0.3"/>
+                            <circle cx="100" cy="100" r="75" fill="none" stroke="url(#gradient2)" stroke-width="2" opacity="0.5"/>
+                            <circle cx="100" cy="100" r="55" fill="none" stroke="url(#gradient3)" stroke-width="3"/>
+                            
+                            <defs>
+                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff006e;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#8338ec;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff006e;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#8338ec;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff006e;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#8338ec;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="waveform-logo">A</div>
+                        <svg class="waveform-bars" viewBox="0 0 300 100">
+                            <!-- Animated bars will be generated by CSS -->
+                        </svg>
+                    </div>
+                    <p class="listening-text">I'm listening...</p>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <input type="text" class="command-input" placeholder="Give me a command..." id="commandInput">
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="dashboard-grid">
+                    <!-- Recent Tasks -->
+                    <div class="card recent-tasks">
+                        <h3>Recent Tasks</h3>
+                        <div class="task-list">
+                            <div class="task-item completed">
+                                <i class="fas fa-check"></i>
+                                <span>Amazon Product Research</span>
+                            </div>
+                            <div class="task-item completed">
+                                <i class="fas fa-check"></i>
+                                <span>Create Excel Report</span>
+                            </div>
+                            <div class="task-item">
+                                <i class="fas fa-circle"></i>
+                                <span>Reply to WhatsApp</span>
+                            </div>
+                            <div class="task-item">
+                                <i class="fas fa-circle"></i>
+                                <span>Study AI Tools</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Suggestions -->
+                    <div class="card ai-suggestions">
+                        <h3>AI Suggestions</h3>
+                        <div class="suggestions-list">
+                            <div class="suggestion-item">
+                                <i class="fas fa-star"></i>
+                                <div class="suggestion-text">
+                                    <p>Want me to summarize today's news?</p>
+                                </div>
+                            </div>
+                            <div class="suggestion-item">
+                                <i class="fas fa-calendar"></i>
+                                <div class="suggestion-text">
+                                    <p>You have a meeting in 2 hours.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weather Update -->
+                    <div class="card weather-update">
+                        <h3>Weather Update</h3>
+                        <div class="weather-content">
+                            <div class="weather-temp">32°C</div>
+                            <div class="weather-status">
+                                <i class="fas fa-cloud"></i>
+                                <span>Partly Cloudy</span>
+                            </div>
+                            <div class="weather-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Dera Ismail Khan, PK</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Shortcuts -->
+                    <div class="card quick-shortcuts">
+                        <div class="card-header">
+                            <h3>Quick Shortcuts</h3>
+                            <a href="#" class="edit-link">Edit</a>
+                        </div>
+                        <div class="shortcuts-grid">
+                            <div class="shortcut-btn">
+                                <i class="fab fa-chrome"></i>
+                                <span>Open Chrome</span>
+                            </div>
+                            <div class="shortcut-btn">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube Search</span>
+                            </div>
+                            <div class="shortcut-btn">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp Web</span>
+                            </div>
+                            <div class="shortcut-btn">
+                                <i class="fas fa-calculator"></i>
+                                <span>Open Calculator</span>
+                            </div>
+                            <div class="shortcut-btn">
+                                <i class="fas fa-sticky-note"></i>
+                                <span>Take Notes</span>
+                            </div>
+                            <div class="shortcut-btn">
+                                <i class="fas fa-newspaper"></i>
+                                <span>Today's News</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Status -->
+                    <div class="card system-status">
+                        <h3>System Status</h3>
+                        <div class="status-metrics">
+                            <div class="metric">
+                                <div class="metric-circle cpu">
+                                    <span>28%</span>
+                                </div>
+                                <p>CPU</p>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-circle ram">
+                                    <span>46%</span>
+                                </div>
+                                <p>RAM</p>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-circle battery">
+                                    <span>82%</span>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-circle storage">
+                                    <span>67%</span>
+                                </div>
+                                <p>Storage</p>
+                            </div>
+                        </div>
+                        <div class="uptime">
+                            <p>Uptime: <strong>5h 42m</strong></p>
+                            <a href="#" class="details-link">Details ></a>
+                        </div>
+                    </div>
+
+                    <!-- Today's Schedule -->
+                    <div class="card todays-schedule">
+                        <div class="card-header">
+                            <h3>Today's Schedule</h3>
+                            <a href="#" class="view-all-link">View All</a>
+                        </div>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:00 AM</div>
+                                <div class="schedule-dot college"></div>
+                                <span>College Class</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">01:30 PM</div>
+                                <div class="schedule-dot meeting"></div>
+                                <span>Project Meeting</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">06:00 PM</div>
+                                <div class="schedule-dot study"></div>
+                                <span>Study Time</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:00 PM</div>
+                                <div class="schedule-dot gym"></div>
+                                <span>Gym Time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Section -->
+            <div id="chat" class="section">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+                        <button class="send-chat-btn" id="sendChatBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Command Section -->
+            <div id="voice" class="section">
+                <div class="voice-command-container">
+                    <h2>Voice Command</h2>
+                    <div class="voice-recorder">
+                        <button class="record-btn" id="recordBtn">
+                            <i class="fas fa-microphone"></i>
+                            Start Recording
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks Section -->
+            <div id="tasks" class="section">
+                <div class="tasks-container">
+                    <h2>Tasks</h2>
+                    <div class="tasks-list" id="tasksList"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Voice Waveform Animation -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+    </svg>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
