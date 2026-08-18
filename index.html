@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arman.AI - Download & Install</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0A0E27 0%, #1D1E33 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .logo-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 0 40px rgba(255, 0, 110, 0.6);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #00FF88;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0 60px;
+            flex-wrap: wrap;
+        }
+
+        .status-item {
+            text-align: center;
+        }
+
+        .status-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .status-label {
+            font-size: 12px;
+            color: #00FF88;
+            font-weight: 600;
+        }
+
+        .status-value {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .download-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .download-card {
+            background: rgba(29, 30, 51, 0.8);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .download-card:hover {
+            border-color: #00FF88;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .platform-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .platform-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .platform-info {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.4);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.6);
+        }
+
+        .download-btn.secondary {
+            background: linear-gradient(135deg, #00FF88, #00DD77);
+            color: #000;
+        }
+
+        .file-size {
+            font-size: 12px;
+            color: #666;
+            margin-top: 12px;
+        }
+
+        .features {
+            background: rgba(29, 30, 51, 0.6);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            padding: 25px;
+            background: rgba(51, 51, 102, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .system-requirements {
+            background: rgba(29, 30, 51, 0.6);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .system-requirements h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #00FF88;
+        }
+
+        .requirement-item {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .requirement-item:last-child {
+            border-bottom: none;
+        }
+
+        .req-label {
+            font-weight: 600;
+            width: 150px;
+            color: #00FF88;
+        }
+
+        .req-value {
+            color: #ccc;
+        }
+
+        .setup-steps {
+            background: rgba(29, 30, 51, 0.6);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .setup-steps h3 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #00FF88;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 60px 0;
+            background: rgba(29, 30, 51, 0.6);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .qr-section h3 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #00FF88;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .qr-item {
+            text-align: center;
+        }
+
+        .qr-code {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .qr-label {
+            font-size: 14px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            border-top: 1px solid rgba(0, 255, 136, 0.1);
+            margin-top: 80px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #00FF88;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .version-info {
+            font-size: 12px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .download-section {
+                grid-template-columns: 1fr;
+            }
+
+            .status-bar {
+                gap: 20px;
+            }
+
+            .qr-container {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-circle">🤖</div>
+            <h1>Arman.AI</h1>
+            <p class="subtitle">Your Personal AI Assistant</p>
+            <p class="description">
+                Powered by Grok • Voice & Text Commands • Task Automation • 100% Free Forever
+            </p>
+
+            <div class="status-bar">
+                <div class="status-item">
+                    <div class="status-icon">🧠</div>
+                    <div class="status-label">Brain</div>
+                    <div class="status-value">Grok AI</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-icon">⚡</div>
+                    <div class="status-label">Status</div>
+                    <div class="status-value">Online</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-icon">💰</div>
+                    <div class="status-label">Cost</div>
+                    <div class="status-value">Free</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Download Section -->
+        <section class="download-section">
+            <!-- Android Download -->
+            <div class="download-card">
+                <div class="platform-icon">📱</div>
+                <div class="platform-name">Android Phone</div>
+                <div class="platform-info">
+                    Works on Android 8.0+<br>
+                    APK Installation<br>
+                    Size: ~95 MB
+                </div>
+                <button class="download-btn" onclick="downloadAPK()">
+                    📥 Download APK
+                </button>
+                <div class="file-size">v1.0.0 • 95 MB</div>
+            </div>
+
+            <!-- Windows Download -->
+            <div class="download-card">
+                <div class="platform-icon">💻</div>
+                <div class="platform-name">Windows PC</div>
+                <div class="platform-info">
+                    Windows 10 & 11<br>
+                    EXE Installer<br>
+                    Size: ~145 MB
+                </div>
+                <button class="download-btn" onclick="downloadEXE()">
+                    📥 Download EXE
+                </button>
+                <div class="file-size">v1.0.0 • 145 MB</div>
+            </div>
+
+            <!-- Web Version -->
+            <div class="download-card">
+                <div class="platform-icon">🌐</div>
+                <div class="platform-name">Web Browser</div>
+                <div class="platform-info">
+                    Works on Any Browser<br>
+                    No Installation<br>
+                    Size: ~5 MB
+                </div>
+                <button class="download-btn secondary" onclick="window.open('https://arman-ai.web.app', '_blank');">
+                    🚀 Open Web Version
+                </button>
+                <div class="file-size">v1.0.0 • Instant Access</div>
+            </div>
+        </section>
+
+        <!-- QR Codes -->
+        <section class="qr-section">
+            <h3>📱 Scan to Download</h3>
+            <div class="qr-container">
+                <div class="qr-item">
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/armankhan004700-dot/Arman.ai/releases/download/v1.0.0/Arman.apk" alt="Android QR Code">
+                    </div>
+                    <div class="qr-label">📱 Android APK</div>
+                </div>
+                <div class="qr-item">
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/armankhan004700-dot/Arman.ai/releases/download/v1.0.0/Arman-Installer.exe" alt="Windows QR Code">
+                    </div>
+                    <div class="qr-label">💻 Windows EXE</div>
+                </div>
+                <div class="qr-item">
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://armankhan004700-dot.github.io/Arman.ai" alt="Website QR Code">
+                    </div>
+                    <div class="qr-label">🌐 This Website</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <h2>Amazing Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎤</div>
+                    <div class="feature-title">Voice Commands</div>
+                    <div class="feature-desc">Speak naturally and get instant AI responses</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">Text Chat</div>
+                    <div class="feature-desc">Type messages and chat with your AI</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <div class="feature-title">Grok Powered</div>
+                    <div class="feature-desc">Advanced AI brain with $25 free credits</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-title">Task Manager</div>
+                    <div class="feature-desc">Create, organize & track your tasks</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔐</div>
+                    <div class="feature-title">Safe Execution</div>
+                    <div class="feature-desc">Ask permission before any action</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚙️</div>
+                    <div class="feature-title">Automation</div>
+                    <div class="feature-desc">Schedule and automate daily tasks</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📧</div>
+                    <div class="feature-title">Email Integration</div>
+                    <div class="feature-desc">Connect with Gmail automatically</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📅</div>
+                    <div class="feature-title">Calendar Sync</div>
+                    <div class="feature-desc">Manage your schedule seamlessly</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌍</div>
+                    <div class="feature-title">Multi-Platform</div>
+                    <div class="feature-desc">Works on Android, Windows & Web</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section class="system-requirements">
+            <h3>System Requirements</h3>
+            
+            <h4 style="margin-top: 25px; color: #FF006E;">Android Requirements:</h4>
+            <div class="requirement-item">
+                <span class="req-label">OS Version:</span>
+                <span class="req-value">Android 8.0 or higher</span>
+            </div>
+            <div class="requirement-item">
+                <span class="req-label">RAM:</span>
+                <span class="req-value">2 GB minimum (4 GB recommended)</span>
+            </div>
+            <div class="requirement-item">
+                <span class="req-label">Storage:</span>
+                <span class="req-value">100 MB free space</span>
+            </div>
+            <div class="requirement-item">
+                <span class="req-label">Internet:</span>
+                <span class="req-value">Required (WiFi or Mobile Data)</span>
+            </div>
+
+            <h4 style="margin-top: 25px; color: #FF006E;">Windows Requirements:</h4>
+            <div class="requirement-item">
+                <span class="req-label">OS Version:</span>
+                <span class="req-value">Windows 10 or Windows 11</span>
+            </div>
+            <div class="requirement-item">
+                <span class="req-label">RAM:</span>
+                <span class="req-value">4 GB minimum (8 GB recommended)</span>
+            </div>
+            <div class="requirement-item">
+                <span class="req-label">Storage:</span>
+                <span class="req-value">200 MB free space</span>
+            </div>
+            <div class="requirement-item">
+                <span class="req-label">Processor:</span>
+                <span class="req-value">Intel/AMD Dual-Core or better</span>
+            </div>
+        </section>
+
+        <!-- Setup Steps -->
+        <section class="setup-steps">
+            <h3>Installation & Setup Guide</h3>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Download the Installer</h4>
+                    <p>Click the download button above for your platform. The installer will begin downloading automatically.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Run the Installer</h4>
+                    <p><strong>Android:</strong> Tap the APK file in your Downloads folder.<br>
+                       <strong>Windows:</strong> Run the EXE installer and follow the installation wizard.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Grant Permissions</h4>
+                    <p>Allow necessary permissions for file access, storage, and microphone (for voice commands).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Get Grok API Key</h4>
+                    <p>Visit <strong>console.x.ai</strong> and get your free API key. You get $25 free credits monthly!</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Configure Settings</h4>
+                    <p>Open Arman.AI, go to Settings, and paste your Grok API key. Configure Gmail and Telegram (optional).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h4>Start Using!</h4>
+                    <p>Use voice commands or text chat. Type "help" to see all available commands and features.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="https://console.x.ai" target="_blank">Get Grok API</a>
+                <a href="https://github.com/armankhan004700-dot/Arman.ai" target="_blank">GitHub Repository</a>
+                <a href="mailto:contact@arman.ai">Support</a>
+            </div>
+            <div class="version-info">
+                <p>Arman.AI v1.0.0 | © 2024 All Rights Reserved | Powered by Grok AI</p>
+                <p>Made with ❤️ by Arman Khan</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Generate stars
+        function generateStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function downloadAPK() {
+            alert('✅ Downloading Android APK (95 MB)\n\nThe file will download to your Downloads folder.\n\nInstallation will begin automatically!');
+            window.location.href = 'https://github.com/armankhan004700-dot/Arman.ai/releases/download/v1.0.0/Arman.apk';
+        }
+
+        function downloadEXE() {
+            alert('✅ Downloading Windows EXE (145 MB)\n\nThe file will download to your Downloads folder.\n\nRun it to install!');
+            window.location.href = 'https://github.com/armankhan004700-dot/Arman.ai/releases/download/v1.0.0/Arman-Installer.exe';
+        }
+
+        window.addEventListener('load', () => {
+            generateStars();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
